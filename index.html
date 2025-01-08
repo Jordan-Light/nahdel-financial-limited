@@ -73,6 +73,36 @@ a {
   justify-content: center;
   font-weight: bold;
 }
+.item6 {
+  display: none;
+  position: relative;
+  justify-content: center;
+}
+.menu {
+  width: 60px;
+}
+ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  margin-top: 0;
+  margin-left: -157px;
+  background: #777;
+  min-width: 232px;
+  padding: 0;
+  li {
+    list-style-type: none;
+    background-color: white;
+    height: 100px;
+    a {
+      text-decoration: none;
+      color: #0c6735;
+      padding: 0.5em 1em;
+      display: block;
+      font-size: 40px;
+    }
+  }
+}
 .item5 a {
   display: inline-block;
   padding: 16px 50px;
@@ -585,6 +615,21 @@ hr {
   #footer {
     width: 100%;
   }
+  #nav {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    padding-left: 60px;
+  }
+  .item2,
+  .item3,
+  .item4 {
+    display: none;
+  }
+  .item5 {
+    margin-left: -250px;
+  }
+  .item6 {
+    display: block;
+  }
   #first-part {
     background-image: url("Section\ One\ Background.png");
     height: 1500px;
@@ -728,6 +773,20 @@ hr {
       </div>
       <div class="item item4"><a href="#third-part">Services</a></div>
       <div class="item item5"><a href="https://wa.me/message/DVHA7SPF5PKRJ1">Invest Now</a></div>
+      <div class="item item6">
+        <a class="dropdown-toggle" href="#" title="Menu"
+          ><img
+            class="menu"
+            src="/NFL/nahdel images/Menu.jpg"
+            alt="Dropdown Menu"
+          />
+        </a>
+        <ul class="dropdown">
+          <li><a href="#">Home</a></li>
+          <li><a href="#third-part">Services</a></li>
+          <li><a href="https://wa.me/message/DVHA7SPF5PKRJ1">About Us</a></li>
+        </ul>
+      </div>
     </div>
 
     <div id="first-part">
@@ -1034,6 +1093,23 @@ hr {
         $(".back-to-top").click(function () {
           $("html, body").animate({ scrollTop: 0 }, "slow");
           $(".back-to-top").fadeOut("slow");
+        });
+      });
+
+      $(function () {
+        // Dropdown toggle
+        $(".dropdown-toggle").click(function () {
+          $(this).next(".dropdown").toggle();
+        });
+
+        $(document).click(function (e) {
+          var target = e.target;
+          if (
+            !$(target).is(".dropdown-toggle") &&
+            !$(target).parents().is(".dropdown-toggle")
+          ) {
+            $(".dropdown").hide();
+          }
         });
       });
     </script>
