@@ -613,31 +613,30 @@
       }
 
       @media (max-width: 821px) {
+        /* General Reset */
         body {
-          display: grid;
-          grid-template-columns: auto;
-        }
-        #nav,
-        #first-part,
-        #second-part,
-        #third-part,
-        #travel-agency,
-        #fourth-part,
-        #fifth-part,
-        #sixth-part,
-        #letter,
-        #footer {
+          overflow-x: hidden; /* Prevents side-scrolling */
           width: 100%;
         }
+
+        /* Navigation Fixes */
         #nav {
-          grid-template-columns: repeat(8, minmax(0, 1fr));
-          padding-left: 108px;
-          padding-right: 40px;
-          padding-top: 50px;
-          height: 183px;
+          grid-template-columns: 1fr 1fr; /* Two simple columns for logo and menu */
+          padding: 10px 20px;
+          height: 100px;
+          align-items: center;
         }
         .logo {
-          width: 300px;
+          width: 180px; /* Scaled down for mobile */
+        }
+        .item1 {
+          grid-column: 1 / 2;
+          justify-content: start;
+        }
+        .item6 {
+          grid-column: 2 / 3;
+          display: grid;
+          justify-content: end;
         }
         .item2,
         .item3,
@@ -645,128 +644,115 @@
         .item5 {
           display: none;
         }
-        .item5 {
-          margin-left: -250px;
-        }
-        .item6 {
-          display: grid;
-        }
+
+        /* Hero Section Fixes */
         #first-part {
-          background-image: url("Section\ One\ Background.png");
-          height: 1500px;
+          height: auto;
+          padding: 80px 20px;
+          text-align: center;
         }
-        #first-part p {
-          width: 100%;
+        #first-part p:nth-child(1) {
+          font-size: 40px; /* Reduced from 117px */
+          line-height: 1.2;
+          margin-right: 0;
         }
-        .first-part img {
-          object-fit: cover;
+        #first-part p:nth-child(2) {
+          font-size: 18px;
+          line-height: 1.5;
+          margin-right: 0; /* Removed the 642px margin */
+        }
+        .first-part-section2 {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .first-part-section2 a:nth-child(1) {
+          margin-right: 0;
+        }
+
+        /* Content Sections */
+        #second-part {
+          padding: 40px 20px;
         }
         #third-part {
-          height: 1381px;
+          height: auto;
+          padding: 40px 20px;
         }
         .third-part-grid {
-          height: 1100px;
-          display: grid;
-          justify-items: center;
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-          grid-row-gap: 52px;
+          grid-template-columns: 1fr;
+          height: auto;
+          gap: 30px;
         }
-        #travel-agency {
-          background-image: url("plane.jpg");
-          height: 800px;
-        }
+
+        /* Travel Agency Section */
         .travel-agency {
-          margin: 0px 75px;
-          padding-top: -7px;
+          margin: 0;
+          padding: 40px 20px;
           text-align: center;
-          font-size: 47px;
+          font-size: 30px;
         }
-        .travel-agency p {
-          margin-bottom: 35px;
-        }
-        .travel-name {
-          color: #0c6735;
-        }
+
+        /* Why Invest Section */
         #fourth-part {
-          height: 4185px;
+          height: auto;
+          padding: 40px 20px;
         }
         .fourth-part-grid {
-          display: grid;
-          justify-items: center;
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-          grid-row-gap: 65px;
+          grid-template-columns: 1fr;
         }
-        .four1 {
-          justify-content: center;
-        }
-        .four2 {
-          margin-right: 0px;
-          justify-content: center;
-        }
-        .services {
-          margin-top: 54px;
-        }
-        .top-one {
-          margin-top: 0px;
+        #fourth-part img {
+          width: 100%; /* Responsive image */
+          max-width: 400px;
         }
         .second-one {
-          margin-top: 55px;
+          width: 100%; /* Removed 489px fixed width */
+          text-align: center;
         }
-        .four2 p:nth-child(3) {
-          margin-top: 47px;
-        }
-        #fifth-part {
-          margin-top: 50px;
-        }
-        .fifth-section-grid {
-          display: grid;
-          justify-items: center;
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-        .five1 {
-          justify-content: center;
-        }
-        .five2 {
-          font-size: 20px;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-          margin: auto;
-        }
+
+        /* Founder Section Fixes (The main culprit) */
         .five2 p {
-          margin: 15px 260px;
-          margin-right: 270px;
+          margin: 15px 0 !important; /* Removed the 260px/270px margins */
+          text-align: center;
         }
-        .sixth-section > p:nth-child(1) {
-          margin-top: 0;
-        }
-        #sixth-part {
-          position: relative;
-          margin: 50px 0px;
-        }
-        #sixth-part img {
-          height: 590px;
-          width: 80%;
-          margin: 0px 10%;
+        #fifth-part img {
+          width: 100%;
+          max-height: 400px;
           object-fit: cover;
         }
-        .sixth-section p:nth-child(4) {
-          font-size: 28px;
-          margin-top: 45px;
+
+        /* CTA and Letter */
+        .sixth-section {
+          position: relative;
+          width: 100%;
+          margin: 0;
+          padding: 20px;
+          top: 0;
+        }
+        #sixth-part img {
+          display: none; /* Background images usually break mobile layout */
+        }
+        #sixth-part {
+          background-color: #0c6735;
+          padding: 40px 0;
         }
         #letter p {
-          margin: 0px 200px;
-          text-align: start;
-          font-size: 20px;
-          line-height: 30px;
+          margin: 20px !important; /* Removed 200px/450px margins */
         }
+
+        /* Footer Fixes */
         .footer-grid {
-          display: grid;
-          grid-template-columns: repeat(7, minmax(0, 2fr));
+          grid-template-columns: 1fr;
         }
-        .foot1 {
-          grid-column-start: 1;
-          grid-column-end: 4;
+        .foot1,
+        .foot7 {
+          grid-column: 1 / -1;
+          text-align: center;
+        }
+        .foot7 > div {
+          margin-left: 0;
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
         }
       }
     </style>
