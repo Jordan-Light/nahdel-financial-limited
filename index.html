@@ -3,1137 +3,629 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nathel Finance Limited</title>
+    <title>Nathel Finance Limited | Official Website</title>
     <link
       rel="shortcut icon"
       href="nahdel images/Fvicon.png"
       type="image/x-icon"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <style>
+      :root {
+        --primary: #0c6735;
+        --dark-bg: #0c1b12;
+        --light-bg: #fbfff7;
+        --accent-bg: #e2e9db;
+        --white: #ffffff;
+        --text-dark: #1a1a1a;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       body {
-        margin: 0%;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Inter", sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: var(--white);
+        scroll-behavior: smooth;
       }
-      a {
-        text-decoration: none;
-        color: white;
+
+      /* --- Layout & UI Components --- */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
       }
-      .back-to-top {
-        float: right;
-        position: fixed;
-        bottom: 6%;
-        right: 4%;
-        opacity: 0;
-        z-index: 10;
+      .section-padding {
+        padding: 100px 0;
       }
-      .back-to-top a {
+      .btn {
         display: inline-block;
-        margin-top: 40px;
+        padding: 16px 35px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        border: none;
+        text-decoration: none;
+        transition: var(--transition);
       }
-      .back-to-top img {
-        border-radius: 40px;
-        width: 70px;
+      .btn-primary {
+        background: var(--primary);
+        color: var(--white);
       }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(12, 103, 53, 0.3);
+        background: #0e8343;
+      }
+      .btn-outline {
+        border: 2px solid var(--white);
+        color: var(--white);
+      }
+      .btn-outline:hover {
+        background: var(--white);
+        color: var(--primary);
+      }
+
+      /* --- Navigation --- */
       #nav {
-        height: 90px;
-        display: grid;
+        background: var(--dark-bg);
+        height: 85px;
+        display: flex;
         align-items: center;
-        justify-items: center;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        background-color: #0c1b12;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      #nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .logo {
-        width: 211px;
-      }
-      .item {
-        display: grid;
-        width: 100%;
-      }
-      .item1 {
-        align-items: end;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        justify-content: center;
-      }
-      .item2 {
-        justify-content: end;
-      }
-      .item3 {
-        justify-content: center;
-      }
-      .item4 {
-        justify-content: start;
-      }
-      .item5 {
-        grid-column-start: 6;
-        grid-column-end: 8;
-        justify-content: center;
-        font-weight: bold;
-      }
-      .item6 {
-        grid-column-start: 7;
-        grid-column-end: 9;
-        display: none;
-        position: relative;
-        justify-content: center;
-      }
-      .dropdown-toggle {
-        text-align: center;
-        align-content: center;
-        display: inline-block;
-        padding: 16px 50px;
-        background-color: #0c6735;
-        width: 177px;
-        height: 94px;
-        font-size: 30px;
-      }
-      ul.dropdown {
-        display: none;
-        position: absolute;
-        top: 100%;
-        margin-top: 0;
-        margin-left: -117px;
-        background: #777;
-        min-width: 300px;
-        padding: 0;
-        border-radius: 10px;
-      }
-      .list {
-        list-style-type: none;
-        background-color: #0c6735;
-        height: 100px;
-      }
-      .links {
-        text-decoration: none;
-        color: white;
-        padding: 0.5em 1em;
+        width: 160px;
         display: block;
-        font-size: 40px;
       }
-      .item5 a {
-        display: inline-block;
-        padding: 16px 50px;
-        border-radius: 30px;
-        background-color: #0c6735;
-      }
-      .item5 a:hover {
-        color: #0c6735;
-        background-color: white;
-        transition: all 0.3s;
-      }
-      .item2 a,
-      .item3 a,
-      .item4 a {
-        padding: 10px 15px;
-        border-radius: 14px;
-      }
-      .item2 a:hover,
-      .item3 a:hover,
-      .item4 a:hover {
-        background-color: #0c6735;
-        transition: all 0.3s;
-      }
-      #first-part {
-        color: white;
-        padding: 50px 0px;
-        height: 675px;
-        background-image: url("First\ Background.png");
-        background-size: cover;
-      }
-      .first-part-section1 {
-        margin: 0% 6%;
-      }
-      #first-part p:nth-child(1) {
-        margin-top: 0%;
-        margin-bottom: 0%;
-        margin-right: 215px;
-        font-size: 117px;
-        font-weight: bold;
-        line-height: 140px;
-      }
-      #first-part p:nth-child(2) {
-        font-size: 20px;
-        line-height: 44px;
-        margin-top: 1%;
-        margin-bottom: 0%;
-        margin-right: 642px;
-      }
-      .first-part-section2 {
-        display: inline-block;
-        margin: 3% 0%;
-      }
-      .first-part-section2 a {
-        display: inline-block;
-        padding: 21px 51px;
-        border-radius: 34px;
-        font-weight: bold;
-      }
-      .first-part-section2 a:nth-child(1) {
-        color: #0c6735;
-        background-color: white;
-        margin-right: 48px;
-      }
-      .first-part-section2 a:nth-child(1):hover {
-        color: white;
-        background-color: #0c6735;
-        transition: all 0.3s;
-      }
-      .first-part-section2 a:nth-child(2) {
-        border: 2px solid white;
-        color: white;
-      }
-      .first-part-section2 a:nth-child(2):hover {
-        border: none;
-        background-color: #0c6735;
-        transition: background-color 0.3s;
-        padding: 22px 53px;
-      }
-      #second-part {
-        padding: 57px 240px;
-        background-color: #fbfff7;
-      }
-      #second-part p:nth-child(1) {
-        font-size: 38px;
-        text-align: center;
-        font-weight: bold;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      #second-part p:nth-child(2) {
-        font-size: 20px;
-        line-height: 35px;
-        text-align: center;
-      }
-      #third-part {
-        padding: 41px;
-        height: 690px;
-        background-color: #e2e9db;
-      }
-      #third-part > p:nth-child(1) {
-        font-size: 38px;
-        font-weight: bold;
-        margin: 0;
-        text-align: center;
-        padding-bottom: 44px;
-      }
-      .third-part-grid {
-        height: 90px;
-        display: grid;
-        justify-items: center;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-column-gap: 85px;
-      }
-      .third-part-grid .item {
-        padding-bottom: 68px;
-        background-color: white;
-        border-radius: 37px;
-      }
-      .third-part-grid-1 {
-        padding-top: 65px;
-        font-size: 20px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 92%,
-          #0c6735 77%
-        );
-      }
-      .third-part-grid-2 {
-        padding-top: 65px;
-        font-size: 20px;
-        padding-bottom: 97px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 92%,
-          #0c673545 77%
-        );
-      }
-      .third-part-grid-3 {
-        padding-top: 65px;
-        font-size: 20px;
-        padding-bottom: 98px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 92%,
-          #0c673545 77%
-        );
-      }
-      .third-part-grid img {
-        width: 95px;
-        margin: auto;
-      }
-      .third-part-grid .correction1 {
-        margin-top: 0px;
-      }
-      .third-part-grid .correction2 {
-        margin-top: 0px;
-      }
-      .third-part-grid .correction3 {
-        margin-top: -27px;
-      }
-      .third-part-grid p {
-        text-align: center;
-      }
-      .passage {
-        margin: 0px 50px;
-        line-height: 30px;
-      }
-      .loans-title {
-        font-size: 27px;
-        font-weight: bold;
-        margin: 25px 0px;
-      }
-      .services {
-        text-align: center;
-        margin-top: 379px;
-        font-size: 24px;
-        font-weight: bold;
-      }
-      .services a:hover {
-        color: #0c6735;
-        background-color: white;
-        box-shadow: 0px 4px 16px rgb(74, 74, 74);
-        padding: 20px 41px;
-        border-radius: 54px;
-      }
-      .invest-now {
-        color: white;
-        background-color: #0c6735;
-        padding: 20px 41px;
-        border-radius: 54px;
-      }
-      .invest-now:hover {
-        color: #0c6735;
-        background-color: white;
-        transition: all 0.3s;
-      }
-      #travel-agency {
-        background-image: url("nathel\ photo.jpg");
-        background-size: cover;
-        padding-top: 19px;
-        padding-bottom: 76px;
-      }
-      .travel-agency {
-        margin: -26px 665px 0px 75px;
-        text-align: left;
-        font-size: 47px;
-        font-weight: 600;
-      }
-      .travel-name {
-        color: #0c6735;
-      }
-      .travel-button {
-        width: 202px;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        background-color: #0c6735;
-        padding: 20px 41px 20px 40px;
-        border-radius: 10px;
-        margin-left: 6px;
-      }
-      .travel-button:hover {
-        color: #0c6735;
-        background-color: white;
-        box-shadow: 0px 4px 16px rgb(74, 74, 74);
-        transition: all 0.3s;
-      }
-      #fourth-part {
-        height: 2492px;
-        background-color: #0c1b12;
-        padding-top: 56px;
-      }
-      #fourth-part > p {
-        font-size: 38px;
-        font-weight: bold;
-        margin: 0;
-        text-align: center;
-        padding-bottom: 56px;
-      }
-      #fourth-part p {
-        color: white;
-      }
-      .fourth-part-grid {
-        display: grid;
-        justify-items: center;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-column-gap: 50px;
-        grid-row-gap: 65px;
-      }
-      .four1 {
-        justify-content: end;
-      }
-      .four2 {
-        margin-right: 0px;
-        justify-content: start;
-      }
-      #fourth-part img {
-        width: 630px;
-        border-radius: 37px;
-        box-shadow: -9px 10px 0px white;
-      }
-      .top-one {
-        height: 0;
-        font-size: 28px;
-        font-weight: bold;
-        margin-top: 78px;
-        margin-bottom: 0;
-      }
-      .second-one {
-        width: 489px;
-        font-size: 20px;
-        line-height: 30px;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .four2 p:nth-child(3) {
-        margin-top: 0;
-      }
-      .four2 .invest-now {
-        font-weight: bold;
-      }
-      #fifth-part {
-        margin-top: 60px;
-      }
-      .fifth-section {
-        position: relative;
-        color: white;
-        background-color: rgb(19, 56, 109, 0.99);
-        padding-top: 35px;
-        padding-bottom: 50px;
-        border-radius: 0;
-      }
-      .small-box {
-        position: absolute;
-        background-color: white;
-      }
-      .box1,
-      .box2 {
-        width: 200px;
-        height: 150px;
-      }
-      .box3,
-      .box4 {
-        width: 150px;
-        height: 100px;
-      }
-      .box1 {
-        top: 0;
-        left: 0;
-        border-radius: 0px 0px 131% 0px;
-      }
-      .box2 {
-        top: 0;
-        right: 0;
-        border-radius: 0px 0px 0px 131%;
-      }
-      .box3 {
-        bottom: 0;
-        left: 0;
-        border-radius: 0px 131% 0px 0px;
-      }
-      .box4 {
-        bottom: 0;
-        right: 0;
-        border-radius: 131% 0px 0px 0px;
-      }
-      .fifth-section > p {
-        font-size: 38px;
-        font-weight: bold;
-        text-align: center;
-        text-transform: capitalize;
-      }
-      .fifth-section-grid {
-        display: grid;
-        justify-items: center;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      #fifth-part img {
-        width: 630px;
-        border-radius: 37px;
-      }
-      .five1 {
-        justify-content: end;
-      }
-      .five2 {
-        font-size: 20px;
-        justify-content: start;
+      .nav-links {
+        display: flex;
+        gap: 30px;
         align-items: center;
-        align-content: center;
       }
-      .five2 p {
-        margin: 15px;
-        margin-right: 270px;
-      }
-      .name {
-        font-size: 28px;
-        font-weight: bold;
-      }
-      .ceo {
-        font-weight: bold;
-      }
-      #sixth-part {
-        position: relative;
-        margin: 55px 0px;
-      }
-      #sixth-part img {
-        width: 80%;
-        margin: 0px 10%;
-      }
-      .sixth-section {
-        color: white;
-        position: absolute;
-        top: 9%;
-        width: 65%;
-        margin: 0px 17.5%;
-      }
-      .sixth-section p {
-        text-align: center;
-      }
-      .sixth-section > p:nth-child(1) {
-        font-size: 38px;
-        font-weight: bold;
-      }
-      .six-p {
-        font-size: 20px;
-        line-height: 30px;
-      }
-      .sixth-section p:nth-child(4) {
-        font-size: 28px;
-        margin-top: 70px;
-      }
-      .sixth-section a {
+      .nav-links a {
+        color: var(--white);
         text-decoration: none;
-        padding: 17px 37px;
-        border: 4px solid white;
-        border-radius: 55px;
-        background-color: #0c6735;
+        font-weight: 500;
+        font-size: 0.95rem;
       }
-      .sixth-section a:hover {
-        color: #0c6735;
-        background-color: white;
-        transition: all 0.3s;
+      .nav-links a:hover {
+        color: #8bc34a;
       }
-      #letter {
-        background-color: #e2e9db;
-        padding: 100px 0px;
+      .menu-btn {
+        display: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        background: var(--primary);
+        padding: 8px 15px;
+        border-radius: 5px;
       }
-      #letter p {
-        margin: 0px 450px;
-        text-align: start;
-        font-size: 20px;
-        line-height: 30px;
+
+      /* --- Hero --- */
+      #hero {
+        background: linear-gradient(
+            rgba(12, 27, 18, 0.75),
+            rgba(12, 27, 18, 0.75)
+          ),
+          url("First Background.png");
+        background-size: cover;
+        background-position: center;
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        color: var(--white);
       }
-      #letter p:nth-child(1) {
-        font-size: 28px;
-        font-weight: bold;
+      #hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.2rem);
+        line-height: 1.1;
+        margin-bottom: 25px;
+      }
+      #hero p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      /* --- Services --- */
+      #services {
+        background: var(--accent-bg);
         text-align: center;
-        margin-bottom: 50px;
       }
-      #letter p:nth-child(2) {
-        margin-bottom: 30px;
-      }
-      #letter p:nth-child(4) {
-        text-align: end;
-        font-size: 20px;
-        font-weight: bold;
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
         margin-top: 50px;
       }
-      .change-color {
-        color: red;
+      .service-card {
+        background: var(--white);
+        padding: 45px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       }
-      #footer {
-        background-color: #fbfff7;
-        padding: 45px 0px;
+      .service-card img {
+        width: 70px;
+        margin-bottom: 25px;
       }
-      .footer-section {
-        width: 80%;
-        margin: 0px 10%;
+
+      /* --- Travel Agency --- */
+      #travel {
+        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("nathel photo.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 140px 0;
+        color: white;
+        text-align: center;
       }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(10, minmax(0, 2fr));
+      .travel-content h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
       }
-      .footer1 a {
-        text-decoration: none;
-        color: black;
+      .travel-content span {
+        color: #8bc34a;
       }
-      .footer1 a:hover {
-        text-decoration: underline;
-        color: #0c6735;
+
+      /* --- Why Invest (Full Grid Restored) --- */
+      #invest {
+        background: var(--dark-bg);
+        color: var(--white);
       }
-      .foot1 {
-        grid-column-start: 1;
-        grid-column-end: 7;
+      .invest-row {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 120px;
       }
-      .foot2 {
-        visibility: hidden;
-        margin-left: 29px;
+      .invest-row:last-child {
+        margin-bottom: 0;
       }
-      hr {
-        margin-top: 26px;
-        margin-bottom: 21px;
-        margin-right: 24px;
+      .invest-row:nth-child(even) {
+        flex-direction: row-reverse;
       }
-      .foot6 {
-        grid-column-start: 1;
-        grid-column-end: 9;
+      .invest-img {
+        flex: 1;
       }
-      .foot7 {
-        grid-column-start: 9;
-        grid-column-end: 11;
+      .invest-img img {
+        width: 100%;
+        border-radius: 25px;
+        box-shadow: 15px 15px 0 var(--primary);
       }
-      .foot7 img {
-        width: 40px;
-        display: inline-block;
+      .invest-text {
+        flex: 1;
       }
-      .foot7 > div {
-        margin-left: 84px;
+      .invest-text h3 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: #8bc34a;
       }
-      .fb {
-        margin-right: 8px;
-        border-radius: 60px;
+
+      /* --- Founder Card --- */
+      #founder {
+        background: var(--light-bg);
       }
-      .foot7 .what {
-        width: 31.5px;
-        margin-bottom: 3px;
-        margin-right: 8px;
+      .founder-card {
+        display: flex;
+        background: var(--white);
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
       }
-      .tweet {
-        border-radius: 60px;
+      .founder-img {
+        flex: 1;
       }
-      .footer1 .item {
-        align-content: end;
+      .founder-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-      .footer2 .item {
-        align-content: start;
+      .founder-info {
+        flex: 1.2;
+        padding: 60px;
+      }
+
+      /* --- Invest with Confidence (CTA Restored) --- */
+      #confidence {
+        position: relative;
+        padding: 100px 0;
+        background: var(--primary);
+        overflow: hidden;
+        color: white;
+        text-align: center;
+      }
+      #confidence img.bg-cta {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.15;
+        z-index: 1;
+      }
+      .confidence-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1001;
+        display: none;
+        cursor: pointer;
+      }
+      .back-to-top img {
+        width: 55px;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
       }
 
       @media (max-width: 821px) {
-        /* General Reset */
-        body {
-          overflow-x: hidden; /* Prevents side-scrolling */
-          width: 100%;
-        }
-
-        /* Navigation Fixes */
-        #nav {
-          grid-template-columns: 1fr 1fr; /* Two simple columns for logo and menu */
-          padding: 10px 20px;
-          height: 100px;
-          align-items: center;
-        }
-        .logo {
-          width: 180px; /* Scaled down for mobile */
-        }
-        .item1 {
-          grid-column: 1 / 2;
-          justify-content: start;
-        }
-        .item6 {
-          grid-column: 2 / 3;
-          display: grid;
-          justify-content: end;
-        }
-        .item2,
-        .item3,
-        .item4,
-        .item5 {
+        .nav-links {
           display: none;
-        }
-
-        /* Hero Section Fixes */
-        #first-part {
-          height: auto;
-          padding: 80px 20px;
-          text-align: center;
-        }
-        #first-part p:nth-child(1) {
-          font-size: 40px; /* Reduced from 117px */
-          line-height: 1.2;
-          margin-right: 0;
-        }
-        #first-part p:nth-child(2) {
-          font-size: 18px;
-          line-height: 1.5;
-          margin-right: 0; /* Removed the 642px margin */
-        }
-        .first-part-section2 {
-          display: flex;
+          position: absolute;
+          top: 85px;
+          left: 0;
+          width: 100%;
+          background: var(--dark-bg);
           flex-direction: column;
-          gap: 15px;
-        }
-        .first-part-section2 a:nth-child(1) {
-          margin-right: 0;
-        }
-
-        /* Content Sections */
-        #second-part {
           padding: 40px 20px;
         }
-        #third-part {
-          height: auto;
-          padding: 40px 20px;
-        }
-        .third-part-grid {
-          grid-template-columns: 1fr;
-          height: auto;
-          gap: 30px;
-        }
-
-        /* Travel Agency Section */
-        .travel-agency {
-          margin: 0;
-          padding: 40px 20px;
-          text-align: center;
-          font-size: 30px;
-        }
-
-        /* Why Invest Section */
-        #fourth-part {
-          height: auto;
-          padding: 40px 20px;
-        }
-        .fourth-part-grid {
-          grid-template-columns: 1fr;
-        }
-        #fourth-part img {
-          width: 100%; /* Responsive image */
-          max-width: 400px;
-        }
-        .second-one {
-          width: 100%; /* Removed 489px fixed width */
-          text-align: center;
-        }
-
-        /* Founder Section Fixes (The main culprit) */
-        .five2 p {
-          margin: 15px 0 !important; /* Removed the 260px/270px margins */
-          text-align: center;
-        }
-        #fifth-part img {
-          width: 100%;
-          max-height: 400px;
-          object-fit: cover;
-        }
-
-        /* CTA and Letter */
-        .sixth-section {
-          position: relative;
-          width: 100%;
-          margin: 0;
-          padding: 20px;
-          top: 0;
-        }
-        #sixth-part img {
-          display: none; /* Background images usually break mobile layout */
-        }
-        #sixth-part {
-          background-color: #0c6735;
-          padding: 40px 0;
-        }
-        #letter p {
-          margin: 20px !important; /* Removed 200px/450px margins */
-        }
-
-        /* Footer Fixes */
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-        .foot1,
-        .foot7 {
-          grid-column: 1 / -1;
-          text-align: center;
-        }
-        .foot7 > div {
-          margin-left: 0;
+        .nav-links.active {
           display: flex;
-          justify-content: center;
-          margin-top: 20px;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .invest-row,
+        .invest-row:nth-child(even) {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+        }
+        .founder-card {
+          flex-direction: column;
         }
       }
     </style>
   </head>
   <body>
-    <div class="back-to-top">
-      <a href="#nav"
-        ><img src="nahdel images/up arrow.png" alt="Back to top of page"
-      /></a>
+    <div class="back-to-top" id="scrollTop">
+      <img src="nahdel images/up arrow.png" alt="Top" />
     </div>
 
-    <div id="nav">
-      <div class="item item1">
-        <img
-          class="logo"
-          src="nahdel images/LOGO.png
-              "
-          alt=""
-        />
+    <header id="nav">
+      <div class="container">
+        <a href="#"
+          ><img src="nahdel images/LOGO.png" class="logo" alt="Logo"
+        /></a>
+        <div class="menu-btn" onclick="toggleMenu()">Menu</div>
+        <nav class="nav-links" id="navLinks">
+          <a href="#">Home</a>
+          <a href="#services">Services</a>
+          <a href="#travel">Travel</a>
+          <a href="#invest">Invest</a>
+          <a href="#founder">About</a>
+          <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary"
+            >Invest Now</a
+          >
+        </nav>
       </div>
-      <div class="item item2"><a href="#">Home</a></div>
-      <div class="item item3">
-        <a href="#fifth-part">About Us</a>
-      </div>
-      <div class="item item4"><a href="#third-part">Services</a></div>
-      <div class="item item5">
-        <a href="https://wa.me/message/DVHA7SPF5PKRJ1">Invest Now</a>
-      </div>
-      <div class="item item6">
-        <a class="dropdown-toggle" href="#" title="Menu">Menu</a>
-        <ul class="dropdown">
-          <li class="list"><a class="links" href="#">Home</a></li>
-          <li class="list"><a class="links" href="#third-part">Services</a></li>
-          <li class="list">
-            <a class="links" href="#fifth-part">About Us</a>
-          </li>
-          <li class="list">
-            <a class="links" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
+    </header>
 
-    <hr style="margin: 0" />
-
-    <div id="first-part">
-      <div class="first-part-section1">
-        <p>Empowering Your Financial Future</p>
+    <section id="hero">
+      <div class="container" data-aos="fade-up">
+        <h1>Empowering Your <br />Financial Future</h1>
         <p>
           At Nathel Financial Institution, we believe in the power of financial
-          empowerment. We are committed to helping individuals and organizations
-          achieve their financial goals through innovative solutions, expert
-          guidance, and a customer-centric approach.
+          empowerment through innovative solutions and expert guidance.
         </p>
-        <div class="first-part-section2">
-          <a href="https://wa.me/message/DVHA7SPF5PKRJ1">Invest Now</a>
-          <a href="#">Learn More</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="second-part">
-      <p>We are Looking for Investors</p>
-      <p>
-        Nathel Financial Institution is a premier financial institution that
-        offers a unique opportunity for investors seeking to maximize their
-        financial potential. With our extensive expertise and commitment to
-        excellence, we provide a range of investment opportunities that deliver
-        sustainable growth and attractive returns
-      </p>
-    </div>
-
-    <div id="third-part">
-      <p>Services We Offer</p>
-      <div class="third-part-grid">
-        <div class="item third-part-grid-1">
-          <img
-            src="nahdel images/Savings Loan Icon.png"
-            alt="image of savings loan"
-          />
-          <p class="loans-title">Savings</p>
-          <p class="passage">
-            We save your money and make realistic realizations of them for a
-            tangible addition into your business.
-          </p>
-        </div>
-        <div class="item third-part-grid-2">
-          <img
-            class="correction1"
-            src="nahdel images/SME Loan Icon.png"
-            alt="logo for SME loan"
-          />
-          <p class="loans-title correction2">SME Loans</p>
-          <p class="passage correction3">
-            We give loans for the improvements and growth of your business.
-          </p>
-        </div>
-        <div class="item third-part-grid-3">
-          <img
-            class="correction1"
-            src="nahdel images/Educational Loan Icon.png"
-            alt="logo for educational loan"
-          />
-          <p class="loans-title correction2">Educational Loan</p>
-          <p class="passage correction3">
-            We give loans for students secure a good and formal education.
-          </p>
-        </div>
-      </div>
-      <p class="services"><a class="invest-now" href="#">More Services</a></p>
-    </div>
-
-    <div id="travel-agency">
-      <div class="travel-agency">
-        <p style="margin-bottom: 315px">
-          <span class="travel-name">Nathel Travel Agency</span><br />
-          We simplify your travel experience by handling the complex visa
-          process and every travel detail in between.
-        </p>
-        <a class="travel-button" href="https://forms.gle/8rt4hBwYhzQ3MeUQ6"
-          >Apply Now</a
+        <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary"
+          >Invest Now</a
         >
       </div>
-    </div>
+    </section>
 
-    <div id="fourth-part">
-      <p>Why Invest With Us</p>
-      <div class="fourth-part-grid">
-        <div class="item four1">
-          <img src="nahdel images/Expertise Image.png" alt="Expertise" />
-        </div>
-        <div class="item four2">
-          <p class="top-one">Expertise</p>
-          <p class="second-one">
-            Our team consists of highly skilled professionals who bring years of
-            experience and expertise in their respective fields. you cna trust
-            us to provide you with sound financial advice and guidance.
-          </p>
-          <p>
-            <a class="invest-now" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </p>
-        </div>
-        <div class="item four1">
-          <img src="nahdel images/Innovation Image.png" alt="Innovation" />
-        </div>
-        <div class="item four2">
-          <p class="top-one">Innovation</p>
-          <p class="second-one">
-            We stay ahead of the curve by embracing technology and offering
-            innovative solutions to meet your evolving financial needs. Our
-            banking services provide convenience and accessibility at your
-            fingertips.
-          </p>
-          <p>
-            <a class="invest-now" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </p>
-        </div>
-        <div class="item four1">
-          <img
-            src="nahdel images/Customer Service.png"
-            alt="Customer service"
-          />
-        </div>
-        <div class="item four2">
-          <p class="top-one">Customer Service</p>
-          <p class="second-one">
-            We prioritize our clients and strive to deliver exceptional customer
-            service. Our dedicated team is always available to answer your
-            questions, address your concerns and provide timely support.
-          </p>
-          <p>
-            <a class="invest-now" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </p>
-        </div>
-        <div class="item four1">
-          <img
-            src="nahdel images/Trust & Security Image.png"
-            alt="Trust and security"
-          />
-        </div>
-        <div class="item four2">
-          <p class="top-one">Trust and Security</p>
-          <p class="second-one">
-            We understand the importance of trust and security when it comes to
-            managing your finances. Nathel Financial Institution adheres to
-            stringent security measures and safeguards to protect your
-            information and assets.
-          </p>
-          <p>
-            <a class="invest-now" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </p>
-        </div>
-        <div class="item four1">
-          <img
-            src="nahdel images/Experienced Team of Professionals Image.png"
-            alt="Experienced team of professionals"
-          />
-        </div>
-        <div class="item four2">
-          <p class="top-one">Experienced Team of Professionals</p>
-          <p class="second-one">
-            Our team of seasoned investment professionals brings a wealth of
-            knowledge and experience to the table. With their deep understanding
-            of the financial markets and dedication to thorough research, they
-            are well equipped to manage assets effectively.
-          </p>
-          <p>
-            <a class="invest-now" href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              >Invest Now</a
-            >
-          </p>
+    <section id="services" class="section-padding">
+      <div class="container">
+        <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 50px">
+          Services We Offer
+        </h2>
+        <div class="services-grid">
+          <div class="service-card" data-aos="zoom-in">
+            <img src="nahdel images/Savings Loan Icon.png" alt="" />
+            <h3>Savings</h3>
+            <p>
+              We save your money and make realistic realizations of them for a
+              tangible addition into your business.
+            </p>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="nahdel images/SME Loan Icon.png" alt="" />
+            <h3>SME Loans</h3>
+            <p>
+              We give loans for the improvements and growth of your business
+              with flexible repayment plans.
+            </p>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="nahdel images/Educational Loan Icon.png" alt="" />
+            <h3>Educational Loan</h3>
+            <p>
+              We give loans for students to secure a good and formal education,
+              investing in future leaders.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="fifth-part">
-      <div class="fifth-section">
-        <div class="box1 small-box"></div>
-        <div class="box2 small-box"></div>
-        <div class="box3 small-box"></div>
-        <div class="box4 small-box"></div>
-        <p>Meet the founder</p>
-        <div class="fifth-section-grid">
-          <div class="item five1">
+    <section id="travel">
+      <div class="container" data-aos="fade">
+        <div class="travel-content">
+          <h2><span>Nathel</span> Travel Agency</h2>
+          <p style="font-size: 1.2rem; margin-bottom: 30px">
+            We simplify your travel experience by handling the complex visa
+            process and every travel detail in between.
+          </p>
+          <a href="https://forms.gle/8rt4hBwYhzQ3MeUQ6" class="btn btn-primary"
+            >Apply Now</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="invest" class="section-padding">
+      <div class="container">
+        <h2
+          style="text-align: center; margin-bottom: 80px; font-size: 2.5rem"
+          data-aos="fade-up"
+        >
+          Why Invest With Us
+        </h2>
+
+        <div class="invest-row" data-aos="fade-right">
+          <div class="invest-img">
+            <img src="nahdel images/Expertise Image.png" alt="" />
+          </div>
+          <div class="invest-text">
+            <h3>Expertise</h3>
+            <p>
+              Our team consists of highly skilled professionals who bring years
+              of experience and expertise. You can trust us to provide you with
+              sound financial advice and guidance.
+            </p>
+            <br /><a
+              href="https://wa.me/message/DVHA7SPF5PKRJ1"
+              class="btn btn-primary"
+              >Invest Now</a
+            >
+          </div>
+        </div>
+
+        <div class="invest-row" data-aos="fade-left">
+          <div class="invest-img">
+            <img src="nahdel images/Innovation Image.png" alt="" />
+          </div>
+          <div class="invest-text">
+            <h3>Innovation</h3>
+            <p>
+              We stay ahead of the curve by embracing technology and offering
+              innovative solutions to meet your evolving financial needs. Our
+              banking services provide convenience at your fingertips.
+            </p>
+            <br /><a
+              href="https://wa.me/message/DVHA7SPF5PKRJ1"
+              class="btn btn-primary"
+              >Invest Now</a
+            >
+          </div>
+        </div>
+
+        <div class="invest-row" data-aos="fade-right">
+          <div class="invest-img">
+            <img src="nahdel images/Customer Service.png" alt="" />
+          </div>
+          <div class="invest-text">
+            <h3>Customer Service</h3>
+            <p>
+              We prioritize our clients and strive to deliver exceptional
+              customer service. Our dedicated team is always available to answer
+              your questions and provide timely support.
+            </p>
+            <br /><a
+              href="https://wa.me/message/DVHA7SPF5PKRJ1"
+              class="btn btn-primary"
+              >Invest Now</a
+            >
+          </div>
+        </div>
+
+        <div class="invest-row" data-aos="fade-left">
+          <div class="invest-img">
+            <img src="nahdel images/Trust & Security Image.png" alt="" />
+          </div>
+          <div class="invest-text">
+            <h3>Trust and Security</h3>
+            <p>
+              We understand the importance of trust and security. Nathel
+              Financial Institution adheres to stringent security measures to
+              protect your information and assets.
+            </p>
+            <br /><a
+              href="https://wa.me/message/DVHA7SPF5PKRJ1"
+              class="btn btn-primary"
+              >Invest Now</a
+            >
+          </div>
+        </div>
+
+        <div class="invest-row" data-aos="fade-right">
+          <div class="invest-img">
             <img
-              src="nahdel images/Personality One.png"
-              alt="Picture of the CEO"
+              src="nahdel images/Experienced Team of Professionals Image.png"
+              alt=""
             />
           </div>
-          <div class="item five2">
-            <p class="name">Nathaniel Onyedikachi Nnamani</p>
-            <p class="ceo">CEO and Chief Investment Officer</p>
-            <p class="detail">
-              As the chief investment officer, he oversees the investment
-              strategies and ensures that every decision aligns with our
-              investors' objectives.
+          <div class="invest-text">
+            <h3>Experienced Professionals</h3>
+            <p>
+              Our team of seasoned investment professionals brings a wealth of
+              knowledge to the table, well equipped to manage assets effectively
+              and research thoroughly.
             </p>
-            <p class="second-detail">
-              A graduate of Madonna University in the discipline of Business
-              Education and Accounting. He possesses all the skills to run and
-              has a knack for helping.
-            </p>
+            <br /><a
+              href="https://wa.me/message/DVHA7SPF5PKRJ1"
+              class="btn btn-primary"
+              >Invest Now</a
+            >
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="sixth-part">
-      <img
-        src="nahdel images/Call To Action Background - Desktop.png"
-        alt="Call to action"
-      />
-      <div class="sixth-section">
-        <p>Invest with Confidence</p>
-        <p class="six-p">
-          At Nathel Financial Institution, we understand that investing is a
-          significant decision. That is why we are committed to providing you
-          with a transparent and professional investment experience. By
-          partnering with us, you gain access to a team of experts who are
-          dedicated to helping you achieve your financial goals.
-        </p>
-        <p class="six-p">
-          Discover the potential of your investments with Nathel Financial
-          Institution. Contact us today to explore the exciting investment
-          opportunities available. Let us guide you towards a prosperous
-          financial future.
-        </p>
-        <p><a href="https://wa.me/message/DVHA7SPF5PKRJ1">Invest Now</a></p>
-      </div>
-    </div>
-
-    <div id="letter">
-      <p>CEO's Letter, NFL</p>
-      <p>
-        <span class="change-color">"</span>On this side, at Nathel Finance
-        Limited we solely believe in growth, And over time, we've made
-        <strong>your</strong> growth our <strong>pin point</strong> of interest.
-      </p>
-      <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Putting
-        in consideration; <strong>Supportive</strong> saving schemes,
-        <strong>Stress-free</strong> loan services and
-        <strong>Profitable</strong> investment plans we offer, it is safe and
-        valid to say we've got <strong>your</strong> present and future
-        interests at heart.<span class="change-color">"</span>
-      </p>
-      <p>Nathaniel O. Nnamani<br />CEO, NFL</p>
-    </div>
-
-    <div id="footer">
-      <div class="footer-section">
-        <div class="footer-grid footer1">
-          <div class="item foot1">
-            <img class="logo" src="nahdel images/Transparent Logo.png" alt="" />
+    <section id="founder" class="section-padding">
+      <div class="container">
+        <div class="founder-card" data-aos="fade-up">
+          <div class="founder-img">
+            <img src="nahdel images/Personality One.png" alt="" />
           </div>
-          <div class="item foot2"><a href="#">Home</a></div>
-          <div class="item foot3"><a href="#fifth-part">About N.F.L</a></div>
-          <div class="item foot4">
-            <a href="mailto:Nahdelinstitute15@gmail.com">Contact Us</a>
-          </div>
-          <div class="item foot5">
-            <a href="#sixth-part">Invest with Us</a>
-          </div>
-        </div>
-        <hr />
-        <div class="footer-grid footer2">
-          <div class="item foot6">&copy; 2025 Nathel Financial Institution</div>
-          <div class="item foot7">
-            <div>
-              <a href="https://m.facebook.com/profile.php?id=100094048087216"
-                ><img class="fb" src="nahdel images/fb.jpg" alt="Facebook link"
-              /></a>
-              <a href="https://wa.me/message/DVHA7SPF5PKRJ1"
-                ><img
-                  class="what"
-                  src="nahdel images/whatsapp.png"
-                  alt="WhatsApp link"
-              /></a>
-              <a href="https://twitter.com/NNahdel"
-                ><img
-                  class="tweet"
-                  src="nahdel images/tweet.jpg"
-                  alt="Twitter link"
-              /></a>
+          <div class="founder-info">
+            <p
+              style="
+                color: var(--primary);
+                font-weight: 700;
+                text-transform: uppercase;
+              "
+            >
+              Meet the Founder
+            </p>
+            <h2 style="margin: 10px 0">Nathaniel Onyedikachi Nnamani</h2>
+            <p style="font-weight: 600; color: #666; margin-bottom: 20px">
+              CEO and Chief Investment Officer
+            </p>
+            <p>
+              Overseeing investment strategies to ensure they align with
+              investors' objectives. A graduate of Madonna University in
+              Business Education and Accounting.
+            </p>
+            <div
+              style="
+                margin-top: 30px;
+                border-left: 4px solid var(--primary);
+                padding-left: 20px;
+                font-style: italic;
+              "
+            >
+              "On this side, at Nathel Finance Limited, we solely believe in
+              growth. We've made your growth our pinpoint of interest."
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section id="confidence">
+      <img
+        src="nahdel images/Call To Action Background - Desktop.png"
+        class="bg-cta"
+        alt=""
+      />
+      <div class="container">
+        <div class="confidence-content" data-aos="zoom-in">
+          <h2 style="font-size: 2.8rem; margin-bottom: 20px">
+            Invest with Confidence
+          </h2>
+          <p style="font-size: 1.1rem; margin-bottom: 35px; opacity: 0.9">
+            At Nathel Financial Institution, we are committed to providing you
+            with a transparent and professional investment experience. Partner
+            with a team dedicated to your financial prosperity.
+          </p>
+          <a
+            href="https://wa.me/message/DVHA7SPF5PKRJ1"
+            class="btn btn-primary"
+            style="background: white; color: var(--primary)"
+            >Contact Us Today</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="
+        background: #000;
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <img
+          src="nahdel images/Transparent Logo.png"
+          width="130"
+          style="margin-bottom: 20px"
+        />
+        <p style="opacity: 0.6; margin-bottom: 20px">
+          &copy; 2026 Nathel Financial Institution. All rights reserved.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px">
+          <a href="https://m.facebook.com/profile.php?id=100094048087216"
+            ><img
+              src="nahdel images/fb.jpg"
+              width="30"
+              style="border-radius: 50%"
+          /></a>
+          <a href="https://wa.me/message/DVHA7SPF5PKRJ1"
+            ><img src="nahdel images/whatsapp.png" width="30"
+          /></a>
+          <a href="https://twitter.com/NNahdel"
+            ><img
+              src="nahdel images/tweet.jpg"
+              width="30"
+              style="border-radius: 50%"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
     <script>
+      AOS.init({ duration: 1000, once: true });
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
       $(window).scroll(function () {
-        if ($(this).scrollTop()) {
-          $(".back-to-top").stop(true, true).fadeIn();
-        } else {
-          $(".back-to-top").stop(true, true).fadeOut();
-        }
+        if ($(this).scrollTop() > 400) $("#scrollTop").fadeIn();
+        else $("#scrollTop").fadeOut();
       });
-
-      $(document).ready(function () {
-        var bottom = $(window).outerHeight() - $(window).height() - 150; // 150 pixel to the bottom of the page;
-        $(window).scroll(function () {
-          if ($(window).scrollTop() >= bottom) {
-            $(".back-to-top").fadeTo("slow", 0.9);
-          } else {
-            $(".back-to-top").fadeOut("slow");
-          }
-        });
-
-        $(".back-to-top").click(function () {
-          $("html, body").animate({ scrollTop: 0 }, "slow");
-          $(".back-to-top").fadeOut("slow");
-        });
-      });
-
-      $(function () {
-        // Dropdown toggle
-        $(".dropdown-toggle").click(function () {
-          $(this).next(".dropdown").slideToggle();
-        });
-
-        $(document).click(function (e) {
-          var target = e.target;
-          if (
-            !$(target).is(".dropdown-toggle") &&
-            !$(target).parents().is(".dropdown-toggle")
-          ) {
-            $(".dropdown").hide();
-          }
-        });
+      $("#scrollTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
       });
     </script>
   </body>
