@@ -40,7 +40,6 @@
         scroll-behavior: smooth;
       }
 
-      /* --- Layout & UI Components --- */
       .container {
         width: 90%;
         max-width: 1200px;
@@ -68,14 +67,6 @@
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba(12, 103, 53, 0.3);
         background: #0e8343;
-      }
-      .btn-outline {
-        border: 2px solid var(--white);
-        color: var(--white);
-      }
-      .btn-outline:hover {
-        background: var(--white);
-        color: var(--primary);
       }
 
       /* --- Navigation --- */
@@ -188,7 +179,7 @@
         color: #8bc34a;
       }
 
-      /* --- Why Invest (Full Grid Restored) --- */
+      /* --- Why Invest --- */
       #invest {
         background: var(--dark-bg);
         color: var(--white);
@@ -246,7 +237,7 @@
         padding: 60px;
       }
 
-      /* --- Invest with Confidence (CTA Restored) --- */
+      /* --- Confidence CTA --- */
       #confidence {
         position: relative;
         padding: 100px 0;
@@ -270,6 +261,15 @@
         z-index: 2;
         max-width: 800px;
         margin: 0 auto;
+      }
+
+      /* --- CEO Letter --- */
+      .ceo-letter-box {
+        background: #f9fdfa;
+        border-left: 8px solid var(--primary);
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       }
 
       .back-to-top {
@@ -302,14 +302,16 @@
         .menu-btn {
           display: block;
         }
-        .invest-row,
-        .invest-row:nth-child(even) {
+        .invest-row, .invest-row:nth-child(even) {
           flex-direction: column;
           text-align: center;
           gap: 40px;
         }
         .founder-card {
           flex-direction: column;
+        }
+        .ceo-letter-box {
+            padding: 30px 20px;
         }
       }
     </style>
@@ -321,9 +323,7 @@
 
     <header id="nav">
       <div class="container">
-        <a href="#"
-          ><img src="nahdel images/LOGO.png" class="logo" alt="Logo"
-        /></a>
+        <a href="#"><img src="nahdel images/LOGO.png" class="logo" alt="Logo" /></a>
         <div class="menu-btn" onclick="toggleMenu()">Menu</div>
         <nav class="nav-links" id="navLinks">
           <a href="#">Home</a>
@@ -331,9 +331,7 @@
           <a href="#travel">Travel</a>
           <a href="#invest">Invest</a>
           <a href="#founder">About</a>
-          <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary"
-            >Invest Now</a
-          >
+          <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
         </nav>
       </div>
     </header>
@@ -341,45 +339,29 @@
     <section id="hero">
       <div class="container" data-aos="fade-up">
         <h1>Empowering Your <br />Financial Future</h1>
-        <p>
-          At Nathel Financial Institution, we believe in the power of financial
-          empowerment through innovative solutions and expert guidance.
-        </p>
-        <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary"
-          >Invest Now</a
-        >
+        <p>At Nathel Financial Institution, we believe in the power of financial empowerment through innovative solutions and expert guidance.</p>
+        <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
       </div>
     </section>
 
     <section id="services" class="section-padding">
       <div class="container">
-        <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 50px">
-          Services We Offer
-        </h2>
+        <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 50px">Services We Offer</h2>
         <div class="services-grid">
           <div class="service-card" data-aos="zoom-in">
             <img src="nahdel images/Savings Loan Icon.png" alt="" />
             <h3>Savings</h3>
-            <p>
-              We save your money and make realistic realizations of them for a
-              tangible addition into your business.
-            </p>
+            <p>We save your money and make realistic realizations of them for a tangible addition into your business.</p>
           </div>
           <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
             <img src="nahdel images/SME Loan Icon.png" alt="" />
             <h3>SME Loans</h3>
-            <p>
-              We give loans for the improvements and growth of your business
-              with flexible repayment plans.
-            </p>
+            <p>We give loans for the improvements and growth of your business with flexible repayment plans.</p>
           </div>
           <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
             <img src="nahdel images/Educational Loan Icon.png" alt="" />
             <h3>Educational Loan</h3>
-            <p>
-              We give loans for students to secure a good and formal education,
-              investing in future leaders.
-            </p>
+            <p>We give loans for students to secure a good and formal education, investing in future leaders.</p>
           </div>
         </div>
       </div>
@@ -389,121 +371,58 @@
       <div class="container" data-aos="fade">
         <div class="travel-content">
           <h2><span>Nathel</span> Travel Agency</h2>
-          <p style="font-size: 1.2rem; margin-bottom: 30px">
-            We simplify your travel experience by handling the complex visa
-            process and every travel detail in between.
-          </p>
-          <a href="https://forms.gle/8rt4hBwYhzQ3MeUQ6" class="btn btn-primary"
-            >Apply Now</a
-          >
+          <p style="font-size: 1.2rem; margin-bottom: 30px">We simplify your travel experience by handling the complex visa process and every travel detail in between.</p>
+          <a href="https://forms.gle/8rt4hBwYhzQ3MeUQ6" class="btn btn-primary">Apply Now</a>
         </div>
       </div>
     </section>
 
     <section id="invest" class="section-padding">
       <div class="container">
-        <h2
-          style="text-align: center; margin-bottom: 80px; font-size: 2.5rem"
-          data-aos="fade-up"
-        >
-          Why Invest With Us
-        </h2>
+        <h2 style="text-align: center; margin-bottom: 80px; font-size: 2.5rem" data-aos="fade-up">Why Invest With Us</h2>
 
         <div class="invest-row" data-aos="fade-right">
-          <div class="invest-img">
-            <img src="nahdel images/Expertise Image.png" alt="" />
-          </div>
+          <div class="invest-img"><img src="nahdel images/Expertise Image.png" alt="" /></div>
           <div class="invest-text">
             <h3>Expertise</h3>
-            <p>
-              Our team consists of highly skilled professionals who bring years
-              of experience and expertise. You can trust us to provide you with
-              sound financial advice and guidance.
-            </p>
-            <br /><a
-              href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              class="btn btn-primary"
-              >Invest Now</a
-            >
+            <p>Our team consists of highly skilled professionals who bring years of experience and expertise. You can trust us to provide you with sound financial advice and guidance.</p>
+            <br /><a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
           </div>
         </div>
 
         <div class="invest-row" data-aos="fade-left">
-          <div class="invest-img">
-            <img src="nahdel images/Innovation Image.png" alt="" />
-          </div>
+          <div class="invest-img"><img src="nahdel images/Innovation Image.png" alt="" /></div>
           <div class="invest-text">
             <h3>Innovation</h3>
-            <p>
-              We stay ahead of the curve by embracing technology and offering
-              innovative solutions to meet your evolving financial needs. Our
-              banking services provide convenience at your fingertips.
-            </p>
-            <br /><a
-              href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              class="btn btn-primary"
-              >Invest Now</a
-            >
+            <p>We stay ahead of the curve by embracing technology and offering innovative solutions to meet your evolving financial needs. Our banking services provide convenience at your fingertips.</p>
+            <br /><a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
           </div>
         </div>
 
         <div class="invest-row" data-aos="fade-right">
-          <div class="invest-img">
-            <img src="nahdel images/Customer Service.png" alt="" />
-          </div>
+          <div class="invest-img"><img src="nahdel images/Customer Service.png" alt="" /></div>
           <div class="invest-text">
             <h3>Customer Service</h3>
-            <p>
-              We prioritize our clients and strive to deliver exceptional
-              customer service. Our dedicated team is always available to answer
-              your questions and provide timely support.
-            </p>
-            <br /><a
-              href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              class="btn btn-primary"
-              >Invest Now</a
-            >
+            <p>We prioritize our clients and strive to deliver exceptional customer service. Our dedicated team is always available to answer your questions and provide timely support.</p>
+            <br /><a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
           </div>
         </div>
 
         <div class="invest-row" data-aos="fade-left">
-          <div class="invest-img">
-            <img src="nahdel images/Trust & Security Image.png" alt="" />
-          </div>
+          <div class="invest-img"><img src="nahdel images/Trust & Security Image.png" alt="" /></div>
           <div class="invest-text">
             <h3>Trust and Security</h3>
-            <p>
-              We understand the importance of trust and security. Nathel
-              Financial Institution adheres to stringent security measures to
-              protect your information and assets.
-            </p>
-            <br /><a
-              href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              class="btn btn-primary"
-              >Invest Now</a
-            >
+            <p>We understand the importance of trust and security. Nathel Financial Institution adheres to stringent security measures to protect your information and assets.</p>
+            <br /><a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
           </div>
         </div>
 
         <div class="invest-row" data-aos="fade-right">
-          <div class="invest-img">
-            <img
-              src="nahdel images/Experienced Team of Professionals Image.png"
-              alt=""
-            />
-          </div>
+          <div class="invest-img"><img src="nahdel images/Experienced Team of Professionals Image.png" alt="" /></div>
           <div class="invest-text">
             <h3>Experienced Professionals</h3>
-            <p>
-              Our team of seasoned investment professionals brings a wealth of
-              knowledge to the table, well equipped to manage assets effectively
-              and research thoroughly.
-            </p>
-            <br /><a
-              href="https://wa.me/message/DVHA7SPF5PKRJ1"
-              class="btn btn-primary"
-              >Invest Now</a
-            >
+            <p>Our team of seasoned investment professionals brings a wealth of knowledge to the table, well equipped to manage assets effectively and research thoroughly.</p>
+            <br /><a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary">Invest Now</a>
           </div>
         </div>
       </div>
@@ -512,103 +431,49 @@
     <section id="founder" class="section-padding">
       <div class="container">
         <div class="founder-card" data-aos="fade-up">
-          <div class="founder-img">
-            <img src="nahdel images/Personality One.png" alt="" />
-          </div>
+          <div class="founder-img"><img src="nahdel images/Personality One.png" alt="" /></div>
           <div class="founder-info">
-            <p
-              style="
-                color: var(--primary);
-                font-weight: 700;
-                text-transform: uppercase;
-              "
-            >
-              Meet the Founder
-            </p>
+            <p style="color: var(--primary); font-weight: 700; text-transform: uppercase;">Meet the Founder</p>
             <h2 style="margin: 10px 0">Nathaniel Onyedikachi Nnamani</h2>
-            <p style="font-weight: 600; color: #666; margin-bottom: 20px">
-              CEO and Chief Investment Officer
-            </p>
-            <p>
-              Overseeing investment strategies to ensure they align with
-              investors' objectives. A graduate of Madonna University in
-              Business Education and Accounting.
-            </p>
-            <div
-              style="
-                margin-top: 30px;
-                border-left: 4px solid var(--primary);
-                padding-left: 20px;
-                font-style: italic;
-              "
-            >
-              "On this side, at Nathel Finance Limited, we solely believe in
-              growth. We've made your growth our pinpoint of interest."
-            </div>
+            <p style="font-weight: 600; color: #666; margin-bottom: 20px">CEO and Chief Investment Officer</p>
+            <p>Overseeing investment strategies to ensure they align with investors' objectives. A graduate of Madonna University in Business Education and Accounting.</p>
+            <div style="margin-top: 30px; border-left: 4px solid var(--primary); padding-left: 20px; font-style: italic;">"On this side, at Nathel Finance Limited, we solely believe in growth. We've made your growth our pinpoint of interest."</div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="confidence">
-      <img
-        src="nahdel images/Call To Action Background - Desktop.png"
-        class="bg-cta"
-        alt=""
-      />
+      <img src="nahdel images/Call To Action Background - Desktop.png" class="bg-cta" alt="" />
       <div class="container">
         <div class="confidence-content" data-aos="zoom-in">
-          <h2 style="font-size: 2.8rem; margin-bottom: 20px">
-            Invest with Confidence
-          </h2>
-          <p style="font-size: 1.1rem; margin-bottom: 35px; opacity: 0.9">
-            At Nathel Financial Institution, we are committed to providing you
-            with a transparent and professional investment experience. Partner
-            with a team dedicated to your financial prosperity.
-          </p>
-          <a
-            href="https://wa.me/message/DVHA7SPF5PKRJ1"
-            class="btn btn-primary"
-            style="background: white; color: var(--primary)"
-            >Contact Us Today</a
-          >
+          <h2 style="font-size: 2.8rem; margin-bottom: 20px">Invest with Confidence</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 35px; opacity: 0.9">At Nathel Financial Institution, we are committed to providing you with a transparent and professional investment experience. Partner with a team dedicated to your financial prosperity.</p>
+          <a href="https://wa.me/message/DVHA7SPF5PKRJ1" class="btn btn-primary" style="background: white; color: var(--primary)">Contact Us Today</a>
         </div>
       </div>
     </section>
 
-    <footer
-      style="
-        background: #000;
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-      "
-    >
+    <section id="ceo-letter" class="section-padding" style="background: #f4f7f2;">
+        <div class="container">
+            <div class="ceo-letter-box" data-aos="fade-up">
+                <h2 style="color: var(--primary); margin-bottom: 25px;">A Letter From Our CEO</h2>
+                <p>Dear Valued Partner,</p><br>
+                <p>At Nathel Finance Limited, we understand that financial growth isn't just about numbers—it's about the dreams, businesses, and educations those numbers support. We have built this institution on the bedrock of transparency and relentless commitment to our clients.</p><br>
+                <p>Our mission is to bridge the gap between where you are and where you want to be. Whether you are saving for a milestone, seeking capital for your SME, or planning a global journey through our travel agency, we treat your goals as our own. On this side, we solely believe in growth. We've made your growth our pinpoint of interest.</p><br>
+                <p style="font-weight: 700; color: var(--primary);">Nathaniel Onyedikachi Nnamani<br><span style="font-weight: 400; color: #666;">CEO, Nathel Finance Limited</span></p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #000; color: white; padding: 60px 0; text-align: center;">
       <div class="container">
-        <img
-          src="nahdel images/Transparent Logo.png"
-          width="130"
-          style="margin-bottom: 20px"
-        />
-        <p style="opacity: 0.6; margin-bottom: 20px">
-          &copy; 2026 Nathel Financial Institution. All rights reserved.
-        </p>
+        <img src="nahdel images/Transparent Logo.png" width="130" style="margin-bottom: 20px" />
+        <p style="opacity: 0.6; margin-bottom: 20px">&copy; 2026 Nathel Financial Institution. All rights reserved.</p>
         <div style="display: flex; justify-content: center; gap: 15px">
-          <a href="https://m.facebook.com/profile.php?id=100094048087216"
-            ><img
-              src="nahdel images/fb.jpg"
-              width="30"
-              style="border-radius: 50%"
-          /></a>
-          <a href="https://wa.me/message/DVHA7SPF5PKRJ1"
-            ><img src="nahdel images/whatsapp.png" width="30"
-          /></a>
-          <a href="https://twitter.com/NNahdel"
-            ><img
-              src="nahdel images/tweet.jpg"
-              width="30"
-              style="border-radius: 50%"
-          /></a>
+          <a href="https://m.facebook.com/profile.php?id=100094048087216"><img src="nahdel images/fb.jpg" width="30" style="border-radius: 50%" /></a>
+          <a href="https://wa.me/message/DVHA7SPF5PKRJ1"><img src="nahdel images/whatsapp.png" width="30" /></a>
+          <a href="https://twitter.com/NNahdel"><img src="nahdel images/tweet.jpg" width="30" style="border-radius: 50%" /></a>
         </div>
       </div>
     </footer>
@@ -620,6 +485,11 @@
       function toggleMenu() {
         document.getElementById("navLinks").classList.toggle("active");
       }
+      document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+              document.getElementById("navLinks").classList.remove("active");
+          });
+      });
       $(window).scroll(function () {
         if ($(this).scrollTop() > 400) $("#scrollTop").fadeIn();
         else $("#scrollTop").fadeOut();
