@@ -172,6 +172,27 @@
       .signature span {
         color: var(--accent-green);
       }
+      /* Styling for the Return Button */
+      .btn-outline {
+        display: inline-block;
+        padding: 15px 35px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: var(--transition);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--accent-green);
+        color: var(--accent-green);
+        background: rgba(139, 195, 74, 0.05);
+        transform: translateY(-3px);
+      }
     </style>
   </head>
   <body>
@@ -212,6 +233,11 @@
             want to be."
           </p>
           <div class="signature">From the <span>Management Desk</span></div>
+        </div>
+        <div style="margin-top: 60px; padding-bottom: 20px">
+          <a href="../index.html" class="btn-outline">
+            <span style="margin-right: 10px">←</span> Back to Main Website
+          </a>
         </div>
       </div>
     </section>
