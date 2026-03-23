@@ -669,7 +669,7 @@
           Why Invest With Us
         </h2>
 
-        <div class="invest-row fade-right" data-aos="fade-right">
+        <div class="invest-row" data-aos="fade-right">
           <div class="invest-img">
             <img src="nahdel images/Expertise Image.png" alt="" />
           </div>
@@ -688,7 +688,7 @@
           </div>
         </div>
 
-        <div class="invest-row fade-left" data-aos="fade-left">
+        <div class="invest-row" data-aos="fade-left">
           <div class="invest-img">
             <img src="nahdel images/Innovation Image.png" alt="" />
           </div>
@@ -707,7 +707,7 @@
           </div>
         </div>
 
-        <div class="invest-row fade-right" data-aos="fade-right">
+        <div class="invest-row" data-aos="fade-right">
           <div class="invest-img">
             <img src="nahdel images/Customer Service.png" alt="" />
           </div>
@@ -726,7 +726,7 @@
           </div>
         </div>
 
-        <div class="invest-row fade-left" data-aos="fade-left">
+        <div class="invest-row" data-aos="fade-left">
           <div class="invest-img">
             <img src="nahdel images/Trust & Security Image.png" alt="" />
           </div>
@@ -745,7 +745,7 @@
           </div>
         </div>
 
-        <div class="invest-row fade-right" data-aos="fade-right">
+        <div class="invest-row" data-aos="fade-right">
           <div class="invest-img">
             <img
               src="nahdel images/Experienced Team of Professionals Image.png"
@@ -1003,34 +1003,6 @@
       videoPlayer.onplaying = () => {
         loader.style.display = "none";
       };
-    </script>
-
-    <script>
-      function updateAOSForMobile() {
-        const isMobile = window.innerWidth <= 821;
-        const rows = document.querySelectorAll(".invest-row");
-
-        rows.forEach((row) => {
-          if (isMobile) {
-            row.setAttribute("data-aos", "fade-up");
-          } else {
-            // restore original animations
-            if (row.classList.contains("fade-left")) {
-              row.setAttribute("data-aos", "fade-left");
-            } else {
-              row.setAttribute("data-aos", "fade-right");
-            }
-          }
-        });
-
-        AOS.refresh();
-      }
-
-      // Run on load
-      updateAOSForMobile();
-
-      // Run on resize (important)
-      window.addEventListener("resize", updateAOSForMobile);
     </script>
 
     <script>
