@@ -196,6 +196,28 @@
           text-align: center;
         }
 
+        /* FIXED INVEST SECTION */
+        .invest-row,
+        .invest-row:nth-child(even) {
+          flex-direction: column !important;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .invest-img,
+        .invest-text {
+          width: 100%;
+        }
+
+        .invest-img img {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        /* keep rest unchanged */
+
         .dropbtn {
           justify-content: center;
           padding: 15px 0;
@@ -238,6 +260,9 @@
         }
         .ceo-letter-box {
           padding: 30px 20px;
+        }
+        #travel {
+          background-attachment: fixed !important;
         }
       }
 
@@ -356,10 +381,13 @@
           url("nathel photo.jpg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
+        background-repeat: no-repeat;
         padding: 140px 0;
         color: white;
         text-align: center;
+
+        /* Needed for parallax */
+        will-change: background-position;
       }
       .travel-content h2 {
         font-size: 3rem;
@@ -642,7 +670,7 @@
           Why Invest With Us
         </h2>
 
-        <div class="invest-row" data-aos="fade-right">
+        <div class="invest-row fade-right" data-aos="fade-right">
           <div class="invest-img">
             <img src="nahdel images/Expertise Image.png" alt="" />
           </div>
@@ -661,7 +689,7 @@
           </div>
         </div>
 
-        <div class="invest-row" data-aos="fade-left">
+        <div class="invest-row fade-left" data-aos="fade-left">
           <div class="invest-img">
             <img src="nahdel images/Innovation Image.png" alt="" />
           </div>
@@ -680,7 +708,7 @@
           </div>
         </div>
 
-        <div class="invest-row" data-aos="fade-right">
+        <div class="invest-row fade-right" data-aos="fade-right">
           <div class="invest-img">
             <img src="nahdel images/Customer Service.png" alt="" />
           </div>
@@ -699,7 +727,7 @@
           </div>
         </div>
 
-        <div class="invest-row" data-aos="fade-left">
+        <div class="invest-row fade-left" data-aos="fade-left">
           <div class="invest-img">
             <img src="nahdel images/Trust & Security Image.png" alt="" />
           </div>
@@ -718,7 +746,7 @@
           </div>
         </div>
 
-        <div class="invest-row" data-aos="fade-right">
+        <div class="invest-row fade-right" data-aos="fade-right">
           <div class="invest-img">
             <img
               src="nahdel images/Experienced Team of Professionals Image.png"
@@ -976,6 +1004,48 @@
       videoPlayer.onplaying = () => {
         loader.style.display = "none";
       };
+    </script>
+
+    <script>
+      function updateAOSForMobile() {
+        const isMobile = window.innerWidth <= 821;
+        const rows = document.querySelectorAll(".invest-row");
+
+        rows.forEach((row) => {
+          if (isMobile) {
+            row.setAttribute("data-aos", "fade-up");
+          } else {
+            // restore original animations
+            if (row.classList.contains("fade-left")) {
+              row.setAttribute("data-aos", "fade-left");
+            } else {
+              row.setAttribute("data-aos", "fade-right");
+            }
+          }
+        });
+
+        AOS.refresh();
+      }
+
+      // Run on load
+      updateAOSForMobile();
+
+      // Run on resize (important)
+      window.addEventListener("resize", updateAOSForMobile);
+    </script>
+
+    <script>
+      const travelSection = document.getElementById("travel");
+
+      window.addEventListener("scroll", function () {
+        const scrollY = window.scrollY;
+
+        // Control speed (smaller = slower movement)
+        const speed = 0.4;
+
+        // Apply parallax effect
+        travelSection.style.backgroundPosition = center ${scrollY * speed}px;
+      });
     </script>
   </body>
 </html>
