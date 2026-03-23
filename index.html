@@ -112,6 +112,79 @@
         border-radius: 5px;
       }
 
+      /* --- Dropdown Container --- */
+      .dropdown {
+        display: inline-block;
+        position: relative;
+      }
+
+      /* The clickable 'Appraisals' link */
+      .dropbtn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .arrow {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      /* The Hidden Menu Box */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--white);
+        min-width: 200px;
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        z-index: 1000;
+        top: 100%; /* Sits right under the nav bar */
+        left: 0;
+        padding: 10px 0;
+        overflow: hidden;
+      }
+
+      /* Individual links inside the dropdown */
+      .dropdown-content a {
+        color: var(--text-dark) !important;
+        padding: 12px 20px !important;
+        text-decoration: none;
+        display: block !important;
+        text-align: left;
+        font-size: 0.95rem;
+        transition: background 0.2s ease;
+      }
+
+      /* Hover Effects */
+      .dropdown-content a:hover {
+        background-color: var(--accent-bg);
+        color: var(--primary) !important;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown:hover .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Mobile Tweak: Ensure dropdown works when menu is stacked */
+      @media (max-width: 768px) {
+        .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background: rgba(0, 0, 0, 0.05);
+          width: 100%;
+        }
+        .dropdown {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
       /* --- Hero --- */
       #hero {
         background: linear-gradient(
@@ -410,11 +483,21 @@
           <a href="#">Home</a>
           <a href="#services">Services</a>
           <a href="#travel">Travel</a>
-          <a href="#invest">Invest</a>
-          <a href="#careers">Careers</a> <a href="#founder">About</a>
-          <a
-            href="https://wa.me/2347031853985?text=Welcome%20to%20Nathel%20Finance!%20We're%20glad%20you're%20interested%20in%20exploring%20investment%20opportunities%20with%20us.%20Please%20feel%20free%20to%20ask%20any%20questions%20or%20share%20your%20interests,%20and%20we'll%20get%20back%20to%20you%20soon.%20%F0%9F%98%8A"
-            class="btn btn-primary"
+
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"
+              >Appraisals <span class="arrow">▾</span></a
+            >
+            <div class="dropdown-content">
+              <a href="/staff.html">Staff Appraisal</a>
+              <a href="/supervisor.html"
+                >Supervisor Review</a
+              >
+            </div>
+          </div>
+          <a href="#careers">Careers</a>
+          <a href="#founder">About</a>
+          <a href="https://wa.me/2347031853985?text=..." class="btn btn-primary"
             >Invest Now</a
           >
         </nav>
@@ -447,6 +530,8 @@
         >
       </div>
     </section>
+
+    <hr style="height: 20px; background-color: #0e8343; border: none" />
 
     <section id="services">
       <div id="videoLoader" class="loader-spinner"></div>
@@ -520,6 +605,8 @@
         </div>
       </div>
     </section>
+
+    <hr style="height: 20px; background-color: #0e8343; border: none" />
 
     <section id="travel">
       <div class="container" data-aos="fade">
