@@ -261,9 +261,6 @@
         .ceo-letter-box {
           padding: 30px 20px;
         }
-        #travel {
-          background-attachment: fixed !important;
-        }
       }
 
       /* --- Hero --- */
@@ -1039,12 +1036,9 @@
 
       window.addEventListener("scroll", function () {
         const scrollY = window.scrollY;
+        const speed = 0.3;
 
-        // Control speed (smaller = slower movement)
-        const speed = 0.4;
-
-        // Apply parallax effect
-        travelSection.style.backgroundPosition = center ${scrollY * speed}px;
+        travelSection.style.backgroundPosition = `center ${scrollY * speed}px`;
       });
     </script>
   </body>
