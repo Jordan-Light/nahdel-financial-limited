@@ -118,7 +118,6 @@
         position: relative;
       }
 
-      /* The clickable 'Appraisals' link */
       .dropbtn {
         cursor: pointer;
         display: flex;
@@ -131,7 +130,6 @@
         transition: transform 0.3s ease;
       }
 
-      /* The Hidden Menu Box */
       .dropdown-content {
         display: none;
         position: absolute;
@@ -140,13 +138,12 @@
         box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
         border-radius: 12px;
         z-index: 1000;
-        top: 100%; /* Sits right under the nav bar */
+        top: 100%;
         left: 0;
         padding: 10px 0;
         overflow: hidden;
       }
 
-      /* Individual links inside the dropdown */
       .dropdown-content a {
         color: var(--text-dark) !important;
         padding: 12px 20px !important;
@@ -157,7 +154,6 @@
         transition: background 0.2s ease;
       }
 
-      /* Hover Effects */
       .dropdown-content a:hover {
         background-color: var(--accent-bg);
         color: var(--primary) !important;
@@ -171,17 +167,77 @@
         transform: rotate(180deg);
       }
 
-      /* Mobile Tweak: Ensure dropdown works when menu is stacked */
-      @media (max-width: 768px) {
-        .dropdown-content {
-          position: static;
-          box-shadow: none;
-          background: rgba(0, 0, 0, 0.05);
-          width: 100%;
+      /* --- Responsive Breakpoint (Unified) --- */
+      @media (max-width: 821px) {
+        .menu-btn {
+          display: block;
         }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 85px;
+          left: 0;
+          width: 100%;
+          background: var(--dark-bg);
+          flex-direction: column;
+          padding: 30px 0;
+          text-align: center;
+          max-height: calc(100vh - 85px);
+          overflow-y: auto;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
         .dropdown {
           width: 100%;
           text-align: center;
+        }
+
+        .dropbtn {
+          justify-content: center;
+          padding: 15px 0;
+          width: 100%;
+        }
+
+        .dropdown-content {
+          position: relative; /* Fixed: No longer floating off-screen */
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.05); /* Fixed: Better legibility */
+          width: 100%;
+          border-radius: 0;
+          top: 0;
+          padding: 0;
+        }
+
+        /* Fixed: Styling dropdown links for mobile legibility */
+        .dropdown-content a {
+          color: #8bc34a !important; /* High visibility green */
+          text-align: center !important;
+          padding: 15px 0 !important;
+          font-size: 1rem !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #hero {
+          background-position: right;
+        }
+        #travel {
+          background-size: auto;
+        }
+        .invest-row,
+        .invest-row:nth-child(even) {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+        }
+        .founder-card {
+          flex-direction: column;
+        }
+        .ceo-letter-box {
+          padding: 30px 20px;
         }
       }
 
@@ -213,14 +269,11 @@
 
       /* --- Services --- */
       #services {
-        background: var(--accent-bg);
-        text-align: center;
-        /* --- Services Video Background Styling --- */
-
-        position: relative; /* Required for absolute children */
+        position: relative;
         overflow: hidden;
-        background: var(--accent-bg); /* Fallback color */
+        background: var(--accent-bg);
         padding: 100px 0;
+        text-align: center;
       }
 
       .video-container {
@@ -229,33 +282,30 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1; /* Lowest layer */
+        z-index: 1;
       }
 
       .video-container video {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ensures video fills area without stretching */
+        object-fit: cover;
       }
 
-      /* Dark overlay to make text/cards pop */
       .video-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(12, 27, 18, 0.4); /* Adjust opacity (0.4) as needed */
+        background: rgba(12, 27, 18, 0.4);
         z-index: 2;
       }
 
-      /* Ensure container content stays on top of video */
       #services .container {
         position: relative;
         z-index: 3;
       }
 
-      /* Video Loader Spinner */
       .loader-spinner {
         position: absolute;
         top: 50%;
@@ -267,7 +317,7 @@
         border-top: 4px solid var(--white);
         border-radius: 50%;
         animation: spin 1s linear infinite;
-        display: none; /* Hidden by default */
+        display: none;
         z-index: 4;
       }
 
@@ -280,7 +330,6 @@
         }
       }
 
-      /* Minor tweak to h2 color for better contrast against video */
       #services h2 {
         color: var(--white);
       }
@@ -425,43 +474,6 @@
         width: 55px;
         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
       }
-
-      @media (max-width: 821px) {
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 85px;
-          left: 0;
-          width: 100%;
-          background: var(--dark-bg);
-          flex-direction: column;
-          padding: 40px 20px;
-        }
-        .nav-links.active {
-          display: flex;
-        }
-        .menu-btn {
-          display: block;
-        }
-        #hero {
-          background-position: right;
-        }
-        #travel {
-          background-size: auto;
-        }
-        .invest-row,
-        .invest-row:nth-child(even) {
-          flex-direction: column;
-          text-align: center;
-          gap: 40px;
-        }
-        .founder-card {
-          flex-direction: column;
-        }
-        .ceo-letter-box {
-          padding: 30px 20px;
-        }
-      }
     </style>
   </head>
   <body>
@@ -535,7 +547,6 @@
 
     <section id="services">
       <div id="videoLoader" class="loader-spinner"></div>
-
       <div class="video-container">
         <video
           id="bgVideo"
@@ -548,7 +559,6 @@
           Your browser does not support the video tag.
         </video>
       </div>
-      <div class="video-overlay"></div>
       <div class="video-overlay"></div>
       <div class="container">
         <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 50px">
@@ -736,7 +746,7 @@
       id="careers"
       style="
         background: linear-gradient(rgba(12, 103, 53, 0.85), rgba(0, 0, 0, 0.8)),
-          url('nahdel images/high-angle-smiley-colleagues-working-together.jpg'); /* INSERT YOUR CAREERS BACKGROUND IMAGE URL HERE */
+          url('nahdel images/high-angle-smiley-colleagues-working-together.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
@@ -884,7 +894,6 @@
           width="130"
           style="margin-bottom: 20px"
         />
-
         <p
           style="
             font-size: 0.85rem;
@@ -896,11 +905,9 @@
         >
           RC 8027330
         </p>
-
         <p style="opacity: 0.6; margin-bottom: 20px; font-size: 0.9rem">
           &copy; 2026 Nathel Financial Institution. All rights reserved.
         </p>
-
         <div style="display: flex; justify-content: center; gap: 15px">
           <a href="https://m.facebook.com/profile.php?id=100094048087216"
             ><img
@@ -909,7 +916,7 @@
               style="border-radius: 50%"
           /></a>
           <a
-            href="https://wa.me/2347031853985?text=Welcome%20to%20Nathel%20Finance!%20We're%20glad%20you're%20interested%20in%20exploring%20investment%20opportunities%20with%20us.%20Please%20feel%20free%20to%20ask%20any%20questions%20or%20share%20your%20interests,%20and%20we'll%20get%20back%20to%20you%20soon.%20%F0%9F%98%8A"
+            href="https://wa.me/2347031853985?text=Welcome%20to%20Nathel%20Finance!%20%F0%9F%98%8A"
             ><img
               src="nahdel images/whatsapp.png"
               width="30"
@@ -933,8 +940,11 @@
         document.getElementById("navLinks").classList.toggle("active");
       }
       document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          document.getElementById("navLinks").classList.remove("active");
+        link.addEventListener("click", (e) => {
+          // Prevent menu close only if clicking the dropdown button itself
+          if (!link.classList.contains("dropbtn")) {
+            document.getElementById("navLinks").classList.remove("active");
+          }
         });
       });
       $(window).scroll(function () {
@@ -946,40 +956,25 @@
       });
 
       const videoPlayer = document.getElementById("bgVideo");
-
-      // --- 🛠️ STEP 1: PUT YOUR 3 VIDEO URLS HERE ---
       const playlist = [
-        "nahdel images/Firstbgvideo.MOV", // First video (e.g., Savings themed)
-        "nahdel images/Secondbgvideo.MOV", // Second video (e.g., Business themed)
-        "nahdel images/Thirdbgvideo.MOV", // Third video (e.g., Team/Success themed)
+        "nahdel images/Firstbgvideo.MOV",
+        "nahdel images/Secondbgvideo.MOV",
+        "nahdel images/Thirdbgvideo.MOV",
       ];
-
       let currentVideoIndex = 0;
-
-      // Load the first video immediately
       videoPlayer.src = playlist[currentVideoIndex];
-
-      // --- 🛠️ STEP 2: THE MAGIC SWITCHER ---
       videoPlayer.onended = function () {
-        currentVideoIndex++; // Move to next video
-
-        // If we reached the end of the list, go back to the first video
-        if (currentVideoIndex >= playlist.length) {
-          currentVideoIndex = 0;
-        }
-
+        currentVideoIndex++;
+        if (currentVideoIndex >= playlist.length) currentVideoIndex = 0;
         videoPlayer.src = playlist[currentVideoIndex];
         videoPlayer.play();
       };
-
       const loader = document.getElementById("videoLoader");
-
-      videoPlayer.onwaiting = function () {
-        loader.style.display = "block"; // Show spinner when buffering
+      videoPlayer.onwaiting = () => {
+        loader.style.display = "block";
       };
-
-      videoPlayer.onplaying = function () {
-        loader.style.display = "none"; // Hide spinner when video starts
+      videoPlayer.onplaying = () => {
+        loader.style.display = "none";
       };
     </script>
   </body>
